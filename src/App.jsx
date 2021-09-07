@@ -2,6 +2,8 @@ import React from 'react';
 //Deps Imports
 import {StreamChat} from 'stream-chat';
 import {Chat} from 'stream-chat-react';
+//CSS Import
+import './App.css';
 //Components Imports
 import {ChannelContainer, ChannelListContainer} from './components';
 
