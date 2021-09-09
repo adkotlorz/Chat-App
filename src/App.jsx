@@ -5,14 +5,19 @@ import {Chat} from 'stream-chat-react';
 //CSS Import
 import './App.css';
 //Components Imports
-import {ChannelContainer, ChannelListContainer} from './components';
+import {Auth, ChannelContainer, ChannelListContainer} from './components';
 
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const client = StreamChat.getInstance(apiKey);
 
+const authToken = false;
+
 const App = () => {
+
+    if (!authToken) return <Auth/>
+
     return (
         <div className="app__wrapper">
             <Chat client={client} theme="team light">
