@@ -1,9 +1,40 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const CreateChannel = () => {
+import {useChatContext} from 'stream-chat-react';
+
+import {UserList} from './';
+import {CloseCreateChannel} from '../assets';
+
+const ChannelNameInput = ({channelName = '', setChannelName}) => {
+    const {client, setActiveChannel} = useChatContext();
+    const [selectedUsers, setSelectedUsers] = useState([client.userID || '']);
+
+    const changeHandler = (e) => {
+        e.preventDefault();
+
+        setChannelName(e.target.value);
+    }
+
+    return (
+      <div className="channel-name-input__wrapper">
+          <p>Name</p>
+          <input value={} onChange={} placeholder='Channel Name'/>
+          <p>Add Members</p>
+      </div>
+    );
+}
+
+const CreateChannel = ({createType, setIsCreating}) => {
+    const [channelName, setChannelName] = useState('');
+
   return (
-      <div>
-          CreateChannel
+      <div className="create-channel__container">
+          <div className="create-channel__header">
+              <p>{createType === 'team' ? 'Create new channel' : 'Send a direct message'}</p>
+              <CloseCreateChannel setIsCreating={setIsCreating}/>
+          </div>
+          {createType === 'team' && <ChannelNameInput channelName={channelName} setChannelName={setChannelName}/>}
+          <UserList setSelectedUsers={setSelectedUsers}/>
       </div>
   );
 }
