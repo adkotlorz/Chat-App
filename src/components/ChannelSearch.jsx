@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
+//Deps Imports
 import {useChatContext} from 'stream-chat-react';
-
+//Components Import
 import {ResultsDropdown} from './'
+//Assets Import
 import {SearchIcon} from '../assets';
 
 const ChannelSearch = ({setToggleContainer}) => {
@@ -23,12 +25,12 @@ const ChannelSearch = ({setToggleContainer}) => {
             const channelResponse = client.queryChannels({
                 type: 'team',
                 name: {$autocomplete: text},
-                members: {$in: [client.userID]}
+                members: {$in: [client.userID]},
             });
             const userResponse = client.queryUsers({
                 id: {$ne: client.userID},
-                name: {$autocomplete: text}
-            })
+                name: {$autocomplete: text},
+            });
 
             const [channels, {users}] = await Promise.all([channelResponse, userResponse]);
 
@@ -55,7 +57,7 @@ const ChannelSearch = ({setToggleContainer}) => {
     return (
         <div className="channel-search__container">
             <div className="channel-search__input__wrapper">
-                <div className="channel-serach__input__icon">
+                <div className="channel-search__input__icon">
                     <SearchIcon/>
                 </div>
                 <input

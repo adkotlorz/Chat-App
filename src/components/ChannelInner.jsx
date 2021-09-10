@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+//Deps Imports
 import {
     Avatar,
     MessageInput,
@@ -9,7 +10,7 @@ import {
     useChatContext,
     Window
 } from 'stream-chat-react';
-
+//Assets Import
 import {ChannelInfo} from '../assets';
 
 export const GiphyContext = React.createContext({});

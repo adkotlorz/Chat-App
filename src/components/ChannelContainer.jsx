@@ -1,7 +1,8 @@
 import React from 'react';
-
-import {ChannelInner, CreateChannel, EditChannel} from './';
+//Deps Imports
 import {Channel, MessageTeam} from 'stream-chat-react';
+//Components Imports
+import {ChannelInner, CreateChannel, EditChannel} from './';
 
 const ChannelContainer = ({isCreating, setIsCreating, isEditing, setIsEditing, createType}) => {
 
