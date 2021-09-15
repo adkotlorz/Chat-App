@@ -4,7 +4,9 @@
 
 # NodeJS & NPM versions
 
+NodeJS v.14.16.1
 
+NPM v.6.14.12
 
 ## Dependencies
 
